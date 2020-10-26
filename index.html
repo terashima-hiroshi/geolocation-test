@@ -5,8 +5,17 @@
         onload = () => {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    document.getElementById('lon').innerText = position.coords.longitude;
-                    document.getElementById('lat').innerText = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const lat = position.coords.latitude;
+                    document.getElementById('lon').innerText = lon;
+                    document.getElementById('lat').innerText = lat;
+
+                    // GoogleMapへのリンクを追加
+                    const el = document.createElement('a');
+                    el.href = `https://www.google.co.jp/maps/@${lat},${lon},10z?hl=ja`;
+                    el.target = '_blank';
+                    el.innerText = 'Google Map';
+                    document.getElementById('main').appendChild(el);
                 },
                 (err) => alert(err),
             );
@@ -15,9 +24,9 @@
 </head>
 
 <body>
-    <div>
-        <p>緯度：<span id="lon"></span></p>
-        <p>経度：<span id="lat"></span></p>
+    <div id="main">
+        <p>緯度：<span id="lat"></span></p>
+        <p>経度：<span id="lon"></span></p>
     </div>
 </body>
 
