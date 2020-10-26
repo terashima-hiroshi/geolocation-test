@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script>
+        onload = () => {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    document.getElementById('lon').innerText = position.coords.longitude;
+                    document.getElementById('lat').innerText = position.coords.latitude;
+                },
+                (err) => alert(err),
+            );
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>緯度：<span id="lon"></span></p>
+        <p>経度：<span id="lat"></span></p>
+    </div>
+</body>
+
+</html>
