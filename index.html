@@ -12,7 +12,7 @@
 
                     // GoogleMapへのリンクを追加
                     const el = document.createElement('a');
-                    el.href = `https://www.google.co.jp/maps/@${lat},${lon},10z?hl=ja`;
+                    el.href = `https://www.google.co.jp/maps?q=${lat},${lon}`;
                     el.target = '_blank';
                     el.innerText = 'Google Map';
                     document.getElementById('main').appendChild(el);
